@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
             background-image: url('https://i.pinimg.com/736x/a4/7e/0d/a47e0d1731a5ae1c7cfbca22f9986148.jpg');
             background-size: cover;
+            overflow: hidden;
         }
         .container {
             margin-top: 50px;
@@ -18,14 +19,15 @@
         h1 {
             color: rgb(0, 0, 0);
         }
-        .btn {
-            font-size: 20px;
-            padding: 10px 20px;
-            margin: 20px;
-            cursor: pointer;
-            border: none;
-            border-radius: 10px;
-            background-color: lightcoral;
+        .confetti {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.9;
+            animation: pop 3s ease-out;
+        }
+        @keyframes pop {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
@@ -35,5 +37,24 @@
         <img src='https://i.pinimg.com/736x/7d/eb/e0/7debe08d531b0f2577ffc5b21220baef.jpg' alt='Happy Gif' width='300'>
         <h1>LITERALLY US :3</h1>
     </div>
+    <script>
+        function createConfetti() {
+            const emojis = ['🎉', '🎊', '✨', '💖', '🥳'];
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.top = Math.random() * window.innerHeight + "px";
+                confetti.style.animationDuration = (Math.random() * 3 + 1) + "s";
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+        
+        let confettiInterval = setInterval(createConfetti, 500);
+        setTimeout(() => clearInterval(confettiInterval), 5000);
+    </script>
 </body>
 </html>
+
