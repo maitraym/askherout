@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOULD YOU LIKE TO BE MY GIRLFRIEND??🗣️🔥🗣️🔥</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/736x/9e/6d/3f/9e6d3f8728f2502a7094ce86ef2fa27e.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            color: rgb(0, 0, 0);
+        }
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        #yesBtn {
+            background-color: rgb(0, 255, 0);
+        }
+        #noBtn {
+            background-color: rgb(237, 88, 88);
+            position: absolute;
+        }
+        .background-img {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <h1>WOULD YOU LIKE TO BE MY GIRLFRIEND??🗣️🔥🗣️🔥</h1>
+        <div class='btn-container'>
+            <button id='yesBtn' class='btn' onclick="window.location.href='official.html'">Yes</button>
+            <button id='noBtn' class='btn'>No</button>
+        </div>
+    </div>
+    <div class='background-img'>
+        <img src='https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHdzbWpqbjdqNnMxcXVuZzEya3B0NDZkbGIwaXlhZ21saGNlZ3ZhaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KyEtlYiutRHVC68Ess/giphy.gif' alt='Cute Background' width='50%'>
+    </div>
+    
+    <script>
+        let moveCount = 0;
+        const noBtn = document.getElementById('noBtn');
+        
+        noBtn.addEventListener('mouseover', function() {
+            if (moveCount < 5) {
+                const x = Math.random() * (window.innerWidth - 100);
+                const y = Math.random() * (window.innerHeight - 50);
+                noBtn.style.left = `${x}px`;
+                noBtn.style.top = `${y}px`;
+                moveCount++;
+            }
+        });
+        
+        noBtn.addEventListener('click', function() {
+            if (moveCount >= 5) {
+                window.location.href = 'dontplay.html';
+            }
+        });
+    </script>
+</body>
+</html>
